@@ -6,7 +6,7 @@ KaliDocker makes setting up and using the dockerized version of Kali Linux more 
 
 Using `just` for management makes everything ten times easier.
 
-```
+```bash
 just -l
 Available recipes:
     build       # Build the setup image
@@ -81,9 +81,12 @@ Using KaliDocker is even easier than installing it:
 just run
 ```
 
+### The `kali` Volume
+That folder named `kali`? That's a volume for your home directory. You can add and remove files to it from your host machine, or the container. Easy!
+
 # Contributing
 
-Not quite ready for contributions just yet (if you can call this thing in need of contributions), but you're free to open issues!
+Not quite ready for contributions just yet (still need to make some measures), but you're free to open issues!
 
 ## Temporary code of conduct
 1. Don't be a jerk.
