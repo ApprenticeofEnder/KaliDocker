@@ -81,8 +81,8 @@ Using KaliDocker is even easier than installing it:
 just run
 ```
 
-### The `kali` Volume
-That folder named `kali`? That's a volume for your home directory. You can add and remove files to it from your host machine, or the container. Easy!
+### The `kali` Directory
+That directory named `kali`? That's a bind mount for your home directory. You can add and remove files to it from your host machine, or the container. Easy!
 
 # Contributing
 
