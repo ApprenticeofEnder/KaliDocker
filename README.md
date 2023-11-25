@@ -23,24 +23,13 @@ Available recipes:
 - Docker ([Docs here](https://docs.docker.com/engine/install/))
 
 ## Installation
+It's only a 2-step process!
+1. Build
+2. Install and Commit
 
-### Step 1 - Set Your Username
+### Step 1 - Build
 
-This is easy, and the only thing that doesn't use `just`:
-```bash
-export KALI_USER=changeme #Change this to whatever username you'd like
-```
-
-For a more permanent solution:
-
-```bash
-# If you use a different shell, such as zsh, adjust the destination file accordingly
-echo "export KALI_USER=changeme" >> ~/.bash_profile
-```
-
-### Step 2 - Build
-
-Now we build the image. Fairly straightforward stuff!
+First, build the image. Fairly straightforward stuff!
 
 ```bash
 # Build the bare image
@@ -54,7 +43,7 @@ If you messed something up during the process, there's a fresh build command, to
 just build-clean
 ```
 
-### Step 3 - Install and Commit
+### Step 2 - Install and Commit
 
 This next step might take a bit, so come back in an hour after you've run the command (but don't walk away yet, there's an important bit after this).
 

@@ -1,4 +1,4 @@
-user := env_var_or_default('KALI_USER', 'user')
+user := env_var_or_default('USERNAME', 'user')
 bare_image_name := user + '_kali_bare'
 headless_image_name := user + '_kali_headless'
 setup_container_name := 'kali_setup'
