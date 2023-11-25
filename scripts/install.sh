@@ -12,4 +12,4 @@ sudo apt -y install nano \
     g++ \
     gdb \
 
-python3 -m pip install --upgrade pwntools
+python -m pip install --upgrade pwntools
