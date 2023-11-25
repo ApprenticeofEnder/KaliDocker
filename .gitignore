@@ -1,4 +1,5 @@
-kali
-!kali/.bashrc
-!kali/.zshrc
-!kali/.profile
+kali/*
+!*/
+!.bashrc
+!.zshrc
+!.profile

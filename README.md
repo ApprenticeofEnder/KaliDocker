@@ -9,11 +9,12 @@ Using `just` for management makes everything ten times easier.
 ```bash
 just -l
 Available recipes:
-    build       # Build the setup image
-    build-clean # Build the setup image without using any build cache
-    commit      # Commit the installation to a Kali image
-    install     # Installs Kali CLI tools (2 hour grace period to commit)
-    run         # Runs a bash shell in a Kali Linux container!
+    build        # Build the setup image
+    build-clean  # Build the setup image without using any build cache
+    commit       # Commit the installation to a Kali image
+    install      # Installs Kali CLI tools (2 hour grace period to commit)
+    run          # Runs a bash shell in a Kali Linux container!
+    update-image # Update the headless image with changes from the active container
 ```
 
 ## Prerequisites
@@ -26,8 +27,15 @@ Available recipes:
 ### Step 1 - Set Your Username
 
 This is easy, and the only thing that doesn't use `just`:
+```bash
+export KALI_USER=changeme #Change this to whatever username you'd like
 ```
-export KALI_USER=<somename>
+
+For a more permanent solution:
+
+```bash
+# If you use a different shell, such as zsh, adjust the destination file accordingly
+echo "export KALI_USER=changeme" >> ~/.bash_profile
 ```
 
 ### Step 2 - Build
@@ -83,6 +91,14 @@ just run
 
 ### The `kali` Directory
 That directory named `kali`? That's a bind mount for your home directory. You can add and remove files to it from your host machine, or the container. Easy!
+
+### Installing New Software On Kali
+If you find a tool or other bit of software that you like and want to have permanently, you can also update the image after you have installed the new software! Run this on your host machine with an active Kali container:
+
+```bash
+# Update the headless image
+just update-image
+```
 
 # Contributing
 
