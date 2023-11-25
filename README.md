@@ -45,33 +45,21 @@ just build-clean
 
 ### Step 2 - Install and Commit
 
-This next step might take a bit, so come back in an hour after you've run the command (but don't walk away yet, there's an important bit after this).
+This next step might take a bit, so come back in an hour, depending on the speed of your machine.
 
 ```bash
 # Install Kali tools
 just install
 ```
 
-Open up another terminal on your host machine, and once you see this in the tab where you ran `just install`, you know it's completed the installation:
+Once you see this message, you know it's completed the installation:
 
 ```bash
 [+] KALI DOCKER INSTALL COMPLETE
 ```
 
-In that second terminal, be ready to run the following command when the install completes:
-
-```bash
-# Commit the installation to the full image
-just commit
-```
-
-In summary:
-- Open up 2 terminal windows/tabs
-- Run `just install` on the first
-- Run `just commit` on the second when the installation completes
-
 ## Usage
-Using KaliDocker is even easier than installing it: 
+Using KaliDocker is about as easy as installing it: 
 
 ```bash
 # Run the Kali Docker container
