@@ -19,6 +19,4 @@ WORKDIR /home/$USERNAME
 
 COPY scripts/install.sh /home/$USERNAME/install.sh
 
-RUN chmod +x /home/$USERNAME/install.sh
-
 ENTRYPOINT ["/bin/bash"]
