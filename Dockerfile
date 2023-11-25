@@ -17,6 +17,6 @@ RUN sudo apt update && sudo apt -y install -d kali-linux-headless
 
 WORKDIR /home/$USERNAME
 
-COPY scripts/install.sh /home/$USERNAME/install.sh
+COPY scripts/install.sh .
 
 ENTRYPOINT ["/bin/bash"]

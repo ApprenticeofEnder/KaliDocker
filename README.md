@@ -7,20 +7,31 @@ KaliDocker makes setting up and using the dockerized version of Kali Linux more 
 Using `just` for management makes everything ten times easier.
 
 ```bash
-just -l
+kalidocker -l
 Available recipes:
-    build        # Build the setup image
-    build-clean  # Build the setup image without using any build cache
-    commit       # Commit the installation to a Kali image
-    install      # Installs Kali CLI tools (2 hour grace period to commit)
-    run          # Runs a bash shell in a Kali Linux container!
-    update-image # Update the headless image with changes from the active container
+    build                         # Build the setup image
+    build-clean                   # Build the setup image without using any build cache
+    default                       # Defaults to the "run" command
+    install                       # Installs Kali CLI tools
+    run                           # Runs a bash shell in a Kali Linux container!
+    run-custom NAME               # Runs a Kali container with a custom name
+    setup                         # Run first-time setup
+    update-image                  # Update the headless image with changes from the active container
+    update-image-custom CONTAINER # Update the headless image with changes from a specific container
 ```
 
 ## Prerequisites
 
 - `just` ([Docs here](https://github.com/casey/just))
 - Docker ([Docs here](https://docs.docker.com/engine/install/))
+
+## Setup
+In the main script directory, run the following:
+```bash
+./kalidocker setup
+```
+
+This will allow you to run `kalidocker` from anywhere on your system.
 
 ## Installation
 It's only a 2-step process!
@@ -33,14 +44,14 @@ First, build the image. Fairly straightforward stuff!
 
 ```bash
 # Build the bare image
-just build
+kalidocker build
 ```
 
 If you messed something up during the process, there's a fresh build command, too:
 
 ```bash
 # Build the bare image with a clean start
-just build-clean
+kalidocker build-clean
 ```
 
 ### Step 2 - Install and Commit
@@ -49,7 +60,7 @@ This next step might take a bit, so come back in an hour, depending on the speed
 
 ```bash
 # Install Kali tools
-just install
+kalidocker install
 ```
 
 Once you see this message, you know it's completed the installation:
@@ -63,7 +74,13 @@ Using KaliDocker is about as easy as installing it:
 
 ```bash
 # Run the Kali Docker container
-just run
+kalidocker
+
+# More explicitly
+kalidocker run
+
+# With a custom name
+kalidocker run-custom <your-container-name>
 ```
 
 ### The `kali` Directory
@@ -74,7 +91,10 @@ If you find a tool or other bit of software that you like and want to have perma
 
 ```bash
 # Update the headless image
-just update-image
+kalidocker update-image
+
+# Update the headless image from a specific container
+kalidocker update-image-custom <container-name>
 ```
 
 # Contributing
