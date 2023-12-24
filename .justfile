@@ -24,7 +24,7 @@ build-clean:
 # Installs Kali CLI tools
 install:
     docker run -it --name {{setup_container_name}} {{bare_image_name}} ./install.sh
-    docker commit --change 'CMD [""]' {{setup_container_name}} {{headless_image_name}}
+    docker commit --change 'CMD []' {{setup_container_name}} {{headless_image_name}}
     docker rm {{setup_container_name}}
     @echo $(tput setaf 2) [+] KALI DOCKER INSTALL COMPLETE $(tput setaf 7)
 
