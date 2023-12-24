@@ -14,4 +14,8 @@ RDIR=$( dirname "$SOURCE" )
 DIR=$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )
 cd $DIR
 
-just $@
+if [[ "$1" == "-h" || "$1" == "--help" ]]; then
+  just -l | sed s/recipes/commands/g
+else
+  just $@
+fi
