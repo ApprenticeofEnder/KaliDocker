@@ -4,20 +4,24 @@
 
 KaliDocker makes setting up and using the dockerized version of Kali Linux more user-friendly. It comes pre-loaded with everything you might need and then some; if it doesn't, you have an install script at your disposal, too.
 
-Using `just` for management makes everything ten times easier.
-
 ```bash
-kalidocker -l
-Available recipes:
+$ kalidocker -h
+Available commands:
     build                         # Build the setup image
+    b                             # alias for `build`
     build-clean                   # Build the setup image without using any build cache
     default                       # Defaults to the "run" command
     install                       # Installs Kali CLI tools
+    i                             # alias for `install`
     run                           # Runs a bash shell in a Kali Linux container!
+    r                             # alias for `run`
     run-custom NAME               # Runs a Kali container with a custom name
+    rc NAME                       # alias for `run-custom`
     setup                         # Run first-time setup
     update-image                  # Update the headless image with changes from the active container
+    u                             # alias for `update-image`
     update-image-custom CONTAINER # Update the headless image with changes from a specific container
+    uc CONTAINER                  # alias for `update-image-custom`
 ```
 
 ## Prerequisites
@@ -34,9 +38,40 @@ In the main script directory, run the following:
 This will allow you to run `kalidocker` from anywhere on your system.
 
 ## Installation
-It's only a 2-step process!
-1. Build
-2. Install and Commit
+There are two options to install Kalidocker:
+1. Online build, offline install
+2. Fully online install
+
+Both options will take a while, so this primarily depends on the speed and time you have access to an internet connection.
+
+Once you see this message, you know it's completed the installation:
+
+```
+[+] KALI DOCKER INSTALL COMPLETE
+```
+
+### Option 1 - Online Build, Offline Install
+This requires the `build` command to be run with an internet connection, while the `install` command can be run without.
+
+```bash
+# Build the bare image (requires internet)
+kalidocker build
+# Alternatively: kalidocker b
+
+# Install tools and commit the updates to a finalized image
+# (No internet connection required)
+kalidocker install
+# Alternatively: kalidocker i
+```
+
+### Option 2 - Fully online install
+This requires an internet connection the full way through. The `install` command uses `build` internally, so you don't have to run that yourself.
+
+```bash
+# Build, install and commit (requires internet)
+kalidocker install
+# Alternatively: kalidocker i
+```
 
 ### Step 1 - Build
 
@@ -54,33 +89,17 @@ If you messed something up during the process, there's a fresh build command, to
 kalidocker build-clean
 ```
 
-### Step 2 - Install and Commit
-
-This next step might take a bit, so come back in an hour, depending on the speed of your machine.
-
-```bash
-# Install Kali tools
-kalidocker install
-```
-
-Once you see this message, you know it's completed the installation:
-
-```bash
-[+] KALI DOCKER INSTALL COMPLETE
-```
-
 ## Usage
 Using KaliDocker is about as easy as installing it: 
 
 ```bash
-# Run the Kali Docker container
+# Run the Kali Docker container (all commands are equivalent)
 kalidocker
+# Alternatively: kalidocker r, kalidocker run
 
-# More explicitly
-kalidocker run
-
-# With a custom name
+# With a custom name (both commands are equivalent)
 kalidocker run-custom <your-container-name>
+# Alternatively: kalidocker rc <your-container-name>
 ```
 
 ### The `kali` Directory
@@ -92,9 +111,11 @@ If you find a tool or other bit of software that you like and want to have perma
 ```bash
 # Update the headless image
 kalidocker update-image
+# Alternatively: kalidocker u
 
 # Update the headless image from a specific container
 kalidocker update-image-custom <container-name>
+# Alternatively: kalidocker uc <container-name>
 ```
 
 # Contributing

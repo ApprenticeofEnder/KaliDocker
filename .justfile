@@ -4,6 +4,13 @@ headless_image_name := user + '_kali_headless'
 setup_container_name := 'kali_setup'
 active_container_name := user + '_kali'
 
+alias i := install
+alias b := build 
+alias r := run
+alias rc := run-custom
+alias u := update-image
+alias uc := update-image-custom
+
 # Defaults to the "run" command
 default: run
 
@@ -22,7 +29,7 @@ build-clean:
     docker build --no-cache --build-arg USERNAME={{user}} --tag {{bare_image_name}} .
 
 # Installs Kali CLI tools
-install:
+install: build
     docker run -it --name {{setup_container_name}} {{bare_image_name}} ./install.sh
     docker commit --change 'CMD []' {{setup_container_name}} {{headless_image_name}}
     docker rm {{setup_container_name}}
