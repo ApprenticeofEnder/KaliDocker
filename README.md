@@ -73,22 +73,6 @@ kalidocker install
 # Alternatively: kalidocker i
 ```
 
-### Step 1 - Build
-
-First, build the image. Fairly straightforward stuff!
-
-```bash
-# Build the bare image
-kalidocker build
-```
-
-If you messed something up during the process, there's a fresh build command, too:
-
-```bash
-# Build the bare image with a clean start
-kalidocker build-clean
-```
-
 ## Usage
 Using KaliDocker is about as easy as installing it: 
 
