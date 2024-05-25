@@ -11,5 +11,7 @@ sudo apt -y install nano \
     apt-transport-https \
     g++ \
     gdb \
+    feroxbuster \
+    seclists
 
 python -m pip install --upgrade pwntools
